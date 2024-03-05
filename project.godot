@@ -24,9 +24,14 @@ version_control/autoload_on_startup=true
 
 folder_colors={
 "res://Buildings/": "yellow",
+"res://HUD/": "teal",
 "res://Network/": "red",
 "res://Units/": "orange"
 }
+
+[physics]
+
+2d/default_gravity=0.0
 
 [rendering]
 
