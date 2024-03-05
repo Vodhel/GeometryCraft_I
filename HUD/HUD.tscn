@@ -1,5 +1,15 @@
-[gd_scene format=3 uid="uid://dtuon6wi7w1t8"]
+[gd_scene load_steps=3 format=3 uid="uid://dtuon6wi7w1t8"]
+
+[ext_resource type="Script" path="res://HUD/HUD.gd" id="1_c5flt"]
+[ext_resource type="PackedScene" uid="uid://c6asp3kg8ilcd" path="res://Units/Circle/Circle.tscn" id="2_repc6"]
 
 [node name="Hud" type="Node2D"]
+script = ExtResource("1_c5flt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Circle" parent="." instance=ExtResource("2_repc6")]
+position = Vector2(-307, -8)
+
+[node name="Circle2" parent="." instance=ExtResource("2_repc6")]
+position = Vector2(443, 10)

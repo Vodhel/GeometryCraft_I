@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://fd3oxt8j5t2o"]
 
-[ext_resource type="PackedScene" uid="uid://c6asp3kg8ilcd" path="res://Units/Circle/Circle.tscn" id="1_xo183"]
+[ext_resource type="PackedScene" uid="uid://dtuon6wi7w1t8" path="res://HUD/HUD.tscn" id="1_jhixv"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Circle" parent="." instance=ExtResource("1_xo183")]
+[node name="Hud" parent="." instance=ExtResource("1_jhixv")]
