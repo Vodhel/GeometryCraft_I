@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbwe4lxvi1rx4"]
+
+[ext_resource type="Script" path="res://Menu/Game_Manager.gd" id="1_qn34k"]
+[ext_resource type="PackedScene" uid="uid://d3ld354jcq625" path="res://Menu/pause_menu.tscn" id="2_xnnw4"]
+
+[node name="Game_Manager" type="Node"]
+process_mode = 3
+script = ExtResource("1_qn34k")
+
+[node name="Pause menu" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("2_xnnw4")]
+game_manager = NodePath("..")
