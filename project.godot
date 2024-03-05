@@ -25,6 +25,7 @@ version_control/autoload_on_startup=true
 folder_colors={
 "res://Buildings/": "yellow",
 "res://HUD/": "teal",
+"res://Menu/": "blue",
 "res://Network/": "red",
 "res://Units/": "orange"
 }

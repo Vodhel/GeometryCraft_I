@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://boo01bjh5r46f"]
+
+[ext_resource type="Script" path="res://Menu/Main Menu.gd" id="1_8wxqu"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_8wxqu")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 536.0
+offset_top = 240.0
+offset_right = 624.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 40.0
+offset_right = 821.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 60
+text = "Geometry Craft I"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
