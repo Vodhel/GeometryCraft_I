@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://j40klj8lt1yt"]
+
+[ext_resource type="Script" path="res://Units/Units.gd" id="1_7bxjv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6wqu"]
+radius = 268.017
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_03qe1"]
+
+[node name="Units" type="Node2D"]
+script = ExtResource("1_7bxjv")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="View" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_h6wqu")
+
+[node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(44, 51)
+texture = SubResource("PlaceholderTexture2D_03qe1")
