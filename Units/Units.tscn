@@ -15,8 +15,13 @@ script = ExtResource("1_7bxjv")
 [node name="View" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_h6wqu")
 
-[node name="HitBox" type="CollisionShape2D" parent="CharacterBody2D"]
-
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(4.54747e-13, 4.76837e-07)
 texture = SubResource("PlaceholderTexture2D_03qe1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,5 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://fd3oxt8j5t2o"]
 
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://c6asp3kg8ilcd" path="res://Units/Circle/Circle.tscn" id="1_xo183"]
 [ext_resource type="PackedScene" uid="uid://cbwe4lxvi1rx4" path="res://Menu/game_manager.tscn" id="2_nspnx"]
 
@@ -10,3 +11,10 @@ hp = 100.0
 velocity = 1.0
 
 [node name="Game_Manager" parent="." instance=ExtResource("2_nspnx")]
+=======
+[ext_resource type="PackedScene" uid="uid://dtuon6wi7w1t8" path="res://HUD/HUD.tscn" id="1_jhixv"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Hud" parent="." instance=ExtResource("1_jhixv")]
+>>>>>>> 60a5a9a1790d7afd575d2723096a38e990b347fc
