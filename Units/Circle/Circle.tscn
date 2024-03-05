@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxsbjcx5hv041"]
+[gd_scene load_steps=4 format=3 uid="uid://c6asp3kg8ilcd"]
 
-[ext_resource type="Script" path="res://Units/Circle/Circle.gd" id="1_63676"]
+[ext_resource type="PackedScene" uid="uid://j40klj8lt1yt" path="res://Units/Units.tscn" id="1_gllun"]
+[ext_resource type="Texture2D" uid="uid://cudcw7o85dmdl" path="res://Units/Circle/Cercle.png" id="2_eic53"]
 
-[node name="Circle" type="Node2D"]
-script = ExtResource("1_63676")
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6fjd"]
+radius = 42.0
+
+[node name="Circle" instance=ExtResource("1_gllun")]
+rotation = 0.00295271
+
+[node name="HitBox" parent="CharacterBody2D" index="1"]
+shape = SubResource("CircleShape2D_v6fjd")
+
+[node name="Sprite2D" parent="CharacterBody2D" index="2"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_eic53")
