@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6asp3kg8ilcd"]
+[gd_scene load_steps=6 format=3 uid="uid://c6asp3kg8ilcd"]
 
 [ext_resource type="PackedScene" uid="uid://j40klj8lt1yt" path="res://Units/Units.tscn" id="1_gllun"]
 [ext_resource type="Texture2D" uid="uid://cudcw7o85dmdl" path="res://Units/Circle/Cercle.png" id="2_eic53"]
 [ext_resource type="Script" path="res://Units/Circle/CharacterBody2D.gd" id="2_owd4s"]
+[ext_resource type="Texture2D" uid="uid://cd1lhm44rd8q2" path="res://icon.svg" id="4_mlli4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fjd"]
 radius = 42.0
 
 [node name="Circle" instance=ExtResource("1_gllun")]
 rotation = 0.00295271
+hp = null
+velocity = null
 
 [node name="CharacterBody2D" parent="." index="0"]
 script = ExtResource("2_owd4s")
@@ -19,3 +22,7 @@ shape = SubResource("CircleShape2D_v6fjd")
 [node name="Sprite2D" parent="CharacterBody2D" index="2"]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_eic53")
+
+[node name="Sprite2D2" parent="CharacterBody2D" index="3"]
+scale = Vector2(1, 0.5)
+texture = ExtResource("4_mlli4")
