@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdpcxeyn8duio"]
+
+[ext_resource type="Script" path="res://Units/Circle/gray_circle.gd" id="1_htx7m"]
+[ext_resource type="Texture2D" uid="uid://cudcw7o85dmdl" path="res://Units/Circle/Cercle.png" id="1_soo3l"]
+
+[node name="GrayCircle" type="Node2D"]
+script = ExtResource("1_htx7m")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.145098, 0.690196, 0.698039, 1)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_soo3l")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0kfaccmoxhim"]
+
+[ext_resource type="Script" path="res://Player/FSM_player.gd" id="1_63qsu"]
+
+[node name="Player" type="Camera2D"]
+script = ExtResource("1_63qsu")

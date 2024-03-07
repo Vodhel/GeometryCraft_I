@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx12h08pn5bod"]
+
+[ext_resource type="PackedScene" uid="uid://0kfaccmoxhim" path="res://Player/Player.tscn" id="1_gib47"]
+[ext_resource type="PackedScene" uid="uid://c6asp3kg8ilcd" path="res://Units/Circle/Circle.tscn" id="1_r3chw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_gib47")]
+
+[node name="Circle2" parent="Player" instance=ExtResource("1_r3chw")]
+position = Vector2(26, -310)
+metadata/_edit_group_ = true
+
+[node name="Circle" parent="Player" instance=ExtResource("1_r3chw")]
+position = Vector2(-493, 255)
+metadata/_edit_group_ = true
+
+[node name="Circle3" parent="Player" instance=ExtResource("1_r3chw")]
+position = Vector2(520, 268)
+metadata/_edit_group_ = true
+
+[connection signal="input_event" from="Player/Circle2" to="Player/Circle2/Units" method="_on_entity_input_event"]
+[connection signal="input_event" from="Player/Circle" to="Player/Circle/Units" method="_on_entity_input_event"]
+[connection signal="input_event" from="Player/Circle3" to="Player/Circle3/Units" method="_on_entity_input_event"]
