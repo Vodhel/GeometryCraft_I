@@ -17,6 +17,8 @@ func _ready():
 	state = 0
 	direction = Vector2(0,0)
 	aimed_position = Vector2(0,0)
+	get_parent().global_order.connect(_on_global_order)
+	
 	print(name)
 
 
@@ -32,10 +34,11 @@ func _process(delta):
 				flag_move_and_attack = false
 				state = 1
 		1:
+			velocity = direction*speed
 			if((position-aimed_position).length() < 1):
 				state = 0
 				direction = Vector2(0,0)
-			position += direction*speed*delta
+				velocity = Vector2(0,0)
 		_:
 			state = 0
 	move_and_slide()
@@ -69,4 +72,14 @@ func _on_unselect():
 	get_parent().unselect.disconnect(_on_unselect)
 	get_parent().give_order.disconnect(_on_recieve_order)
 
+func _on_global_order(order : Array):
+	
+	match order[0]:
+		"select": # Pas forcément une bonne méthode, j'arrive pas à trouver comment faire
+			pass
+		"disconnect":
+			pass
+		_:
+			pass
+	
 

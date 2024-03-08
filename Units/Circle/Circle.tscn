@@ -3,17 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://j40klj8lt1yt" path="res://Units/Units.tscn" id="1_gllun"]
 [ext_resource type="Texture2D" uid="uid://cudcw7o85dmdl" path="res://Units/Circle/Cercle.png" id="2_eic53"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ea3hh"]
-radius = 42.0476
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hp07"]
+radius = 41.0122
 
 [node name="Circle" instance=ExtResource("1_gllun")]
 rotation = 0.00295271
 hp = 96.645
 
-[node name="Entity#Sprite2D" type="Sprite2D" parent="." index="0"]
-position = Vector2(4.54747e-13, 4.76837e-07)
+[node name="Sprite2D" parent="." index="0"]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_eic53")
 
-[node name="Entity#HitBox" type="CollisionShape2D" parent="." index="1"]
-shape = SubResource("CircleShape2D_ea3hh")
+[node name="HitBox" parent="." index="1"]
+shape = SubResource("CircleShape2D_1hp07")

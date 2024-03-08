@@ -14,7 +14,7 @@ signal give_order(order : Array)
 #So unit know when unselection is done
 signal unselect
 
-#For the ones that should work on the press of a button
+#For the ones that should work on the press of a button and to select
 signal global_order(order : Array)
 
 
