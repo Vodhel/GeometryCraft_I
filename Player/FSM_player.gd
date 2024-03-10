@@ -15,7 +15,7 @@ signal give_order(order : Array)
 signal unselect
 
 #For the ones that should work on the press of a button and to select
-signal global_order(order : Array)
+signal give_global_order(order : Array)
 
 
 
@@ -44,6 +44,16 @@ func _process(_delta):
 				
 			if(Input.is_action_just_pressed("move_and_attack")):
 				give_order.emit(["move_and_attack", get_global_mouse_position()])
+				
+			if(Input.is_action_just_pressed("ajout_selection")):
+				print("Ctrl clic")
+				give_global_order.emit(["select"])
+				
+			elif(Input.is_action_just_pressed("selection")):
+				print("Clic")
+				give_order.emit(["disconnect"]) 
+				give_global_order.emit(["select"])
+
 		1:
 			if Input.is_action_just_pressed("selection"):
 				var circle = circle_preload.instantiate()

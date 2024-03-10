@@ -9,6 +9,7 @@ radius = 41.0122
 [node name="Circle" instance=ExtResource("1_gllun")]
 rotation = 0.00295271
 hp = 96.645
+speed_multiplier = 1.0
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(2.5, 2.5)

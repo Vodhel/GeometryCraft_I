@@ -12,12 +12,14 @@ var aimed_position : Vector2
 var state : int
 var flag_move_and_attack : bool = false
 
+var FLAG_hovering : bool =  false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	state = 0
 	direction = Vector2(0,0)
 	aimed_position = Vector2(0,0)
-	get_parent().global_order.connect(_on_global_order)
+	get_parent().give_global_order.connect(_on_global_order)
 	
 	print(name)
 
@@ -45,15 +47,10 @@ func _process(delta):
 	
 
 
-
+# N'est plus nécessaire, à supprimer quand on aura plus besoin de débugg ça
 func _input_event(_viewport, event, _shape_idx):
 	if(event.is_action_pressed("selection")):
 		print("clicked")
-		# Y'a une erreur quand on double clic, je corrige pas car c'est une
-		# manière de faire la connection qui est vouée à changer
-		get_parent().give_order.connect(_on_recieve_order)
-		get_parent().unselect.connect(_on_unselect)
-
 
 
 func _on_recieve_order(order : Array):
@@ -65,21 +62,22 @@ func _on_recieve_order(order : Array):
 			aimed_position = order[1]
 			direction = (aimed_position-position).normalized()
 			flag_move_and_attack = true
+		"disconnect":
+			get_parent().give_order.disconnect(_on_recieve_order)
 		_:
 			pass
-
-func _on_unselect():
-	get_parent().unselect.disconnect(_on_unselect)
-	get_parent().give_order.disconnect(_on_recieve_order)
 
 func _on_global_order(order : Array):
 	
 	match order[0]:
 		"select": # Pas forcément une bonne méthode, j'arrive pas à trouver comment faire
-			pass
-		"disconnect":
-			pass
+			if(FLAG_hovering): # Trouvé !
+				get_parent().give_order.connect(_on_recieve_order)
 		_:
 			pass
-	
 
+func _on_mouse_shape_entered(shape_idx):
+	FLAG_hovering = true
+	
+func _on_mouse_shape_exited(shape_idx):
+	FLAG_hovering = false
