@@ -11,9 +11,6 @@ var list_unit : Array
 # order as an array
 signal give_order(order : Array) 
 
-#So unit know when unselection is done
-signal unselect
-
 #For the ones that should work on the press of a button and to select
 signal give_global_order(order : Array)
 
@@ -37,7 +34,7 @@ func _process(_delta):
 		0:
 			if Input.is_action_just_pressed("build"):
 				state = 1
-				unselect.emit()
+				#add unselect here
 				var grey_circle = load("res://Units/Circle/gray_circle.tscn").instantiate()
 				add_child(grey_circle)
 				print(get_parent().get_tree_string_pretty())

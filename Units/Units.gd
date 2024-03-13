@@ -61,7 +61,7 @@ func _on_recieve_order(order : Array):
 							# to find path
 			aimed_position = order[1]
 			direction = (aimed_position-position).normalized()
-			flag_move_and_attack = true
+			(flag_move_and_attack) = true
 		"disconnect":
 			get_parent().give_order.disconnect(_on_recieve_order)
 		_:
