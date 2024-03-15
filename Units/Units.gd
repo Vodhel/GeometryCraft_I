@@ -3,6 +3,8 @@ class_name Unit
 
 @export var hp 		 := 100.0
 @export var speed_multiplier := 1.0
+@onready var nav_agent = $NavigationAgent2D
+
 
 var speed = 100 * speed_multiplier 
 #@export var name 	 := "Name"
@@ -78,6 +80,10 @@ func _on_global_order(order : Array):
 
 func _on_mouse_shape_entered(shape_idx):
 	FLAG_hovering = true
+	print("in")
+	
 	
 func _on_mouse_shape_exited(shape_idx):
 	FLAG_hovering = false
+	print("out")
+	

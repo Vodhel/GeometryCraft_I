@@ -7,18 +7,8 @@
 
 [node name="Player" parent="." instance=ExtResource("1_gib47")]
 
-[node name="Circle2" parent="Player" instance=ExtResource("1_r3chw")]
-position = Vector2(26, -310)
-metadata/_edit_group_ = true
-
 [node name="Circle" parent="Player" instance=ExtResource("1_r3chw")]
-position = Vector2(-493, 255)
-metadata/_edit_group_ = true
+position = Vector2(292, 3)
 
-[node name="Circle3" parent="Player" instance=ExtResource("1_r3chw")]
-position = Vector2(520, 268)
-metadata/_edit_group_ = true
-
-[connection signal="input_event" from="Player/Circle2" to="Player/Circle2/Units" method="_on_entity_input_event"]
-[connection signal="input_event" from="Player/Circle" to="Player/Circle/Units" method="_on_entity_input_event"]
-[connection signal="input_event" from="Player/Circle3" to="Player/Circle3/Units" method="_on_entity_input_event"]
+[node name="Circle2" parent="Player" instance=ExtResource("1_r3chw")]
+position = Vector2(-285, 9)

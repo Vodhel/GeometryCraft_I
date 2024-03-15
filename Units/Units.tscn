@@ -1,27 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://j40klj8lt1yt"]
+[gd_scene load_steps=3 format=3 uid="uid://j40klj8lt1yt"]
 
 [ext_resource type="Script" path="res://Units/Units.gd" id="1_7bxjv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h6wqu"]
-radius = 367.316
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_03qe1"]
 
-[node name="Units" type="Node2D"]
+[node name="Unit" type="CharacterBody2D"]
+input_pickable = true
+motion_mode = 1
 script = ExtResource("1_7bxjv")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 
-[node name="View" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_h6wqu")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.54747e-13, 4.76837e-07)
 texture = SubResource("PlaceholderTexture2D_03qe1")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
 
-[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
+[node name="View" type="CollisionShape2D" parent="Area2D"]
 
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]

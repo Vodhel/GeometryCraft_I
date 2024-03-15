@@ -1,18 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6asp3kg8ilcd"]
+[gd_scene load_steps=5 format=3 uid="uid://c6asp3kg8ilcd"]
 
 [ext_resource type="PackedScene" uid="uid://j40klj8lt1yt" path="res://Units/Units.tscn" id="1_gllun"]
 [ext_resource type="Texture2D" uid="uid://cudcw7o85dmdl" path="res://Units/Circle/Cercle.png" id="2_eic53"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1hp07"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_bilnp"]
 radius = 41.0122
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1lrk"]
+radius = 330.276
 
 [node name="Circle" instance=ExtResource("1_gllun")]
 rotation = 0.00295271
 hp = 96.645
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Hitbox" parent="." index="0"]
+shape = SubResource("CircleShape2D_bilnp")
+debug_color = Color(0.952941, 0, 0.552941, 0.419608)
+
+[node name="Sprite2D" parent="." index="1"]
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_eic53")
 
-[node name="HitBox" parent="." index="1"]
-shape = SubResource("CircleShape2D_1hp07")
+[node name="View" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_h1lrk")
