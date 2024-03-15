@@ -22,12 +22,12 @@ func _ready():
 	direction = Vector2(0,0)
 	aimed_position = Vector2(0,0)
 	get_parent().give_global_order.connect(_on_global_order)
+	nav_agent.velocity_computed.connect(_on_velocity_computed)
 	
 	print(name)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if hp == 0:
 		queue_free()
 		
@@ -41,8 +41,7 @@ func _process(delta):
 			velocity = direction*speed
 			if((position-aimed_position).length() < 1):
 				state = 0
-				direction = Vector2(0,0)
-				velocity = Vector2(0,0)
+				set_movement_target(position)
 		_:
 			state = 0
 	move_and_slide()
@@ -62,7 +61,7 @@ func _on_recieve_order(order : Array):
 		"move_and_attack": #For now straight line, but we'll have to find a way
 							# to find path
 			aimed_position = order[1]
-			direction = (aimed_position-position).normalized()
+			set_movement_target(aimed_position)
 			(flag_move_and_attack) = true
 		"disconnect":
 			get_parent().give_order.disconnect(_on_recieve_order)
@@ -77,6 +76,14 @@ func _on_global_order(order : Array):
 				get_parent().give_order.connect(_on_recieve_order)
 		_:
 			pass
+
+
+func _on_velocity_computed(safe_velocity: Vector2):
+	velocity = safe_velocity
+	move_and_slide()
+
+func set_movement_target(movement_target: Vector2):
+	nav_agent.set_target_position(movement_target)
 
 func _on_mouse_shape_entered(shape_idx):
 	FLAG_hovering = true
