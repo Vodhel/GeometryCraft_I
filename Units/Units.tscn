@@ -2,29 +2,26 @@
 
 [ext_resource type="Script" path="res://Units/Units.gd" id="1_7bxjv"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_03qe1"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_h6wqu"]
 radius = 367.316
 
-[node name="Entity" type="CharacterBody2D"]
-input_pickable = true
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_03qe1"]
+
+[node name="Units" type="Node2D"]
 script = ExtResource("1_7bxjv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="View" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_h6wqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(4.54747e-13, 4.76837e-07)
 texture = SubResource("PlaceholderTexture2D_03qe1")
 
-[node name="HitBox" type="CollisionShape2D" parent="."]
-
-[node name="Units" type="Node2D" parent="."]
-
-[node name="View" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
 
-[node name="Perimeter" type="CollisionShape2D" parent="View"]
-shape = SubResource("CircleShape2D_h6wqu")
+[node name="HitBox" type="CollisionShape2D" parent="Area2D"]
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

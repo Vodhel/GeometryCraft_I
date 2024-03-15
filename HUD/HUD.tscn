@@ -10,6 +10,15 @@ script = ExtResource("1_c5flt")
 
 [node name="Circle" parent="." instance=ExtResource("2_repc6")]
 position = Vector2(-307, -8)
+input_pickable = true
 
 [node name="Circle2" parent="." instance=ExtResource("2_repc6")]
 position = Vector2(443, 10)
+input_pickable = true
+
+[connection signal="input_event" from="Circle" to="Circle" method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="Circle" to="Circle" method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Circle" to="Circle" method="_on_mouse_shape_exited"]
+[connection signal="input_event" from="Circle2" to="Circle2" method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="Circle2" to="Circle2" method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Circle2" to="Circle2" method="_on_mouse_shape_exited"]

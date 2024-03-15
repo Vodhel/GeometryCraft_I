@@ -3,6 +3,7 @@ extends Control
 @export var Moving_Background : bool
 @export_range(0,1) var Background_Speed : float
 @export_range(0,1) var Brackground_Force : float
+@export var Targeted_Scene : String
 
 var center : Vector2
 @onready var background = $Background_Control
@@ -22,7 +23,7 @@ func _process(delta):
 		tween.tween_property(background, "position", offset, 2-2*Background_Speed)
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://test_area.tscn")
+	get_tree().change_scene_to_file(Targeted_Scene)
 	pass # Replace with function body.
 
 

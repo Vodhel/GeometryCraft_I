@@ -16,6 +16,7 @@ script = ExtResource("1_8wxqu")
 Moving_Background = true
 Background_Speed = 0.055
 Brackground_Force = 0.205
+Targeted_Scene = "res://Michael_test_scene.tscn"
 
 [node name="Background_Control" type="Control" parent="."]
 layout_mode = 1
