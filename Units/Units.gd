@@ -38,10 +38,15 @@ func _physics_process(delta):
 				flag_move_and_attack = false
 				state = 1
 		1:
-			velocity = direction*speed
-			if((position-aimed_position).length() < 1):
+			if nav_agent.is_navigation_finished():
 				state = 0
-				set_movement_target(position)
+				velocity = Vector2.ZERO
+			else:
+				var target = nav_agent.get_next_path_position()
+				direction = global_position.direction_to(target)
+				var new_velocity = direction*speed
+				nav_agent.set_velocity(new_velocity)
+				
 		_:
 			state = 0
 	move_and_slide()
@@ -62,6 +67,7 @@ func _on_recieve_order(order : Array):
 							# to find path
 			aimed_position = order[1]
 			set_movement_target(aimed_position)
+			print(aimed_position)
 			(flag_move_and_attack) = true
 		"disconnect":
 			get_parent().give_order.disconnect(_on_recieve_order)

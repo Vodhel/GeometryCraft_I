@@ -21,6 +21,16 @@ collision_mask = 0
 [node name="View" type="CollisionShape2D" parent="Area2D"]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 45.0
+neighbor_distance = 100.0
+avoidance_layers = 15
+avoidance_mask = 15
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0.14902, 1)
+debug_path_custom_point_size = 5.0
+debug_path_custom_line_width = 1.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

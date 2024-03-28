@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx12h08pn5bod"]
+[gd_scene load_steps=5 format=3 uid="uid://dx12h08pn5bod"]
 
 [ext_resource type="PackedScene" uid="uid://0kfaccmoxhim" path="res://Player/Player.tscn" id="1_gib47"]
 [ext_resource type="PackedScene" uid="uid://c6asp3kg8ilcd" path="res://Units/Circle/Circle.tscn" id="1_r3chw"]
+[ext_resource type="Texture2D" uid="uid://cd1lhm44rd8q2" path="res://icon.svg" id="3_1nu5m"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_kbpno"]
+vertices = PackedVector2Array(563, -309, 591, 493, -636, 437, -592, -311)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-602, -322, -647, 447, 602, 504, 573, -319), PackedVector2Array(-155, 22, -159, 357, 114, 357, 104, 1)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(6, 17)
+metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_gib47")]
 
@@ -12,3 +21,34 @@ position = Vector2(292, 3)
 
 [node name="Circle2" parent="Player" instance=ExtResource("1_r3chw")]
 position = Vector2(-285, 9)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(10, -7)
+navigation_polygon = SubResource("NavigationPolygon_kbpno")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-69, 89)
+texture = ExtResource("3_1nu5m")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(28, 82)
+texture = ExtResource("3_1nu5m")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(-69, 192)
+texture = ExtResource("3_1nu5m")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(31, 192)
+texture = ExtResource("3_1nu5m")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(-75, 288)
+texture = ExtResource("3_1nu5m")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(44, 281)
+texture = ExtResource("3_1nu5m")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(-64, -53)
